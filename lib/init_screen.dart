@@ -18,8 +18,12 @@ class _InitScreenState extends State<InitScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return currentScreen == 'welcome-screen'
-        ? WelcomeScreen(onStartQuiz: navigateToQuizScreen)
-        : QuizScreen();
+    Widget screenToDisplay = WelcomeScreen(onStartQuiz: navigateToQuizScreen);
+
+    if (currentScreen == 'quiz-screen') {
+      screenToDisplay = QuizScreen();
+    }
+
+    return screenToDisplay;
   }
 }

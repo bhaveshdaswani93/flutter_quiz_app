@@ -8,23 +8,18 @@ class InitScreen extends StatefulWidget {
 }
 
 class _InitScreenState extends State<InitScreen> {
-  Widget? currentScreen;
-
-  @override
-  void initState() {
-    super.initState();
-    currentScreen = WelcomeScreen(onStartQuiz: navigateToQuizScreen);
-  }
+  String currentScreen = "welcome-screen";
 
   void navigateToQuizScreen() {
     setState(() {
-      currentScreen = QuizScreen();
+      currentScreen = 'quiz-screen';
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return currentScreen ??
-        Container(); // Show the current screen or an empty container if null
+    return currentScreen == 'welcome-screen'
+        ? WelcomeScreen(onStartQuiz: navigateToQuizScreen)
+        : QuizScreen();
   }
 }

@@ -33,6 +33,7 @@ class _QuizScreenState extends State<QuizScreen> {
           children: [
             Text(
               currentQuestion.question,
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ResultSummary extends StatelessWidget {
   const ResultSummary(this.summaryData, {super.key});
@@ -37,30 +38,33 @@ class ResultSummary extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        data['question'] as String,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: const Color.fromARGB(214, 255, 255, 255),
-                          fontSize: 16,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          data['question'] as String,
+                          style: GoogleFonts.lato(
+                            fontWeight: FontWeight.bold,
+                            color: const Color.fromARGB(214, 255, 255, 255),
+                            fontSize: 16,
+                          ),
                         ),
-                      ),
-                      Text(
-                        'Your answer: ${data['user_answer']}',
-                        style: TextStyle(
-                          color: const Color.fromARGB(103, 255, 255, 255),
+                        Text(
+                          'Your answer: ${data['user_answer']}',
+                          style: TextStyle(
+                            color: const Color.fromARGB(103, 255, 255, 255),
+                          ),
                         ),
-                      ),
-                      Text(
-                        'Correct answer: ${data['correct_answer'] as String}',
-                        style: TextStyle(
-                          color: const Color.fromARGB(164, 48, 219, 85),
+                        Text(
+                          'Correct answer: ${data['correct_answer'] as String}',
+                          style: TextStyle(
+                            color: const Color.fromARGB(164, 48, 219, 85),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ],

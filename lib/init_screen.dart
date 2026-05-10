@@ -30,6 +30,13 @@ class _InitScreenState extends State<InitScreen> {
     });
   }
 
+  void restartQuiz() {
+    setState(() {
+      currentScreen = 'quiz-screen';
+      userAnswers.clear();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget screenToDisplay = WelcomeScreen(onStartQuiz: navigateToQuizScreen);
@@ -37,7 +44,7 @@ class _InitScreenState extends State<InitScreen> {
     if (currentScreen == 'quiz-screen') {
       screenToDisplay = QuizScreen(onUserChooseAnswer: addUserAnswer);
     } else if (currentScreen == 'result-screen') {
-      screenToDisplay = ResultScreen(userAnswers);
+      screenToDisplay = ResultScreen(userAnswers, restartQuiz);
     }
 
     return screenToDisplay;

@@ -3,9 +3,10 @@ import 'package:flutter_quiz_app/data/questions.dart';
 import 'package:flutter_quiz_app/result_summary.dart';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen(this.userAnswers, {super.key});
+  const ResultScreen(this.userAnswers, this.onRestart, {super.key});
 
   final List<String> userAnswers;
+  final void Function() onRestart;
 
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
@@ -53,9 +54,11 @@ class ResultScreen extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          TextButton(
-            onPressed: checkResult,
-            child: Text('Restart Quiz'),
+          TextButton.icon(
+            onPressed: onRestart,
+            style: TextButton.styleFrom(foregroundColor: Colors.white),
+            icon: Icon(Icons.refresh),
+            label: Text('Restart Quiz'),
           ),
         ],
       ),

@@ -16,6 +16,7 @@ class ResultSummary extends StatelessWidget {
             final isCorrectAnswer =
                 data['user_answer'] == data['correct_answer'];
             return Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   height: 30,
@@ -37,6 +38,7 @@ class ResultSummary extends StatelessWidget {
                 ),
                 Expanded(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         data['question'] as String,
